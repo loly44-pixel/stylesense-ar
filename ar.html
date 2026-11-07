@@ -2,184 +2,269 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>StyleSense AR | Fashion Showroom</title>
 
-  <title>StyleSense AR | Virtual Showroom</title>
+<script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
 
-  <script type="module"
-    src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js">
-  </script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+body{
+  font-family:Arial,sans-serif;
+  background:#f4f0e9;
+  color:#29352f;
+}
 
-    body {
-      font-family: Arial, sans-serif;
-      background: #f4f0e9;
-      color: #29352f;
-    }
+header{
+  padding:24px 7%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
 
-    header {
-      padding: 25px 8%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+.logo{font-size:23px;font-weight:bold;letter-spacing:1px}
+.logo span{color:#a58b6d}
 
-    .logo {
-      font-size: 22px;
-      font-weight: bold;
-    }
+header a{
+  text-decoration:none;
+  color:#29352f;
+  font-size:13px;
+}
 
-    .logo span {
-      color: #a58b6d;
-    }
+.hero{
+  padding:65px 20px 45px;
+  text-align:center;
+  background:#eae4d9;
+}
 
-    .back {
-      color: #29352f;
-      text-decoration: none;
-      font-size: 14px;
-    }
+.eyebrow{
+  color:#9b8064;
+  font-size:11px;
+  letter-spacing:4px;
+  margin-bottom:20px;
+}
 
-    .container {
-      max-width: 1000px;
-      margin: 35px auto;
-      padding: 25px;
-      text-align: center;
-    }
+h1{
+  font-size:clamp(38px,7vw,65px);
+  margin-bottom:15px;
+  font-weight:500;
+}
 
-    .tag {
-      color: #9b8064;
-      letter-spacing: 3px;
-      font-size: 12px;
-      margin-bottom: 15px;
-    }
+h1 span{color:#9b8064}
 
-    h1 {
-      font-size: 42px;
-      margin-bottom: 12px;
-    }
+.hero p:last-child{
+  color:#77736b;
+  line-height:1.8;
+}
 
-    .description {
-      color: #77736b;
-      line-height: 1.7;
-      margin-bottom: 25px;
-    }
+.categories{
+  display:flex;
+  justify-content:center;
+  gap:12px;
+  padding:35px 15px;
+  flex-wrap:wrap;
+}
 
-    .viewer-box {
-      background: #fffdf9;
-      border-radius: 20px;
-      padding: 15px;
-      max-width: 700px;
-      margin: auto;
-      box-shadow: 0 10px 35px #29352f12;
-    }
+.category{
+  border:1px solid #c9bba9;
+  padding:13px 27px;
+  color:#29352f;
+  background:transparent;
+  cursor:pointer;
+  letter-spacing:1px;
+  transition:.3s;
+}
 
-    model-viewer {
-      width: 100%;
-      height: 430px;
-      background: #ede8df;
-      border-radius: 14px;
-    }
+.category.active,.category:hover{
+  background:#29352f;
+  color:white;
+}
 
-    .ar-button {
-      background: #29352f;
-      color: white;
-      border: none;
-      padding: 16px 30px;
-      border-radius: 4px;
-      cursor: pointer;
-      font-size: 13px;
-      letter-spacing: 1px;
-      margin-top: 20px;
-    }
+.showroom{
+  max-width:1050px;
+  margin:auto;
+  padding:10px 22px 60px;
+}
 
-    .ar-button:hover {
-      background: #526456;
-    }
+.section-heading{
+  text-align:center;
+  margin-bottom:30px;
+}
 
-    .hint {
-      color: #8a8278;
-      font-size: 12px;
-      margin-top: 15px;
-    }
+.section-heading h2{
+  font-size:29px;
+  font-weight:500;
+  margin-bottom:10px;
+}
 
-    footer {
-      text-align: center;
-      padding: 30px;
-      color: #999187;
-      font-size: 11px;
-    }
+.section-heading p{
+  color:#8a8278;
+  font-size:13px;
+}
 
-    @media(max-width: 600px) {
-      h1 {
-        font-size: 32px;
-      }
+.product{
+  max-width:650px;
+  margin:auto;
+  background:#fffdf9;
+  padding:18px;
+  border-radius:5px;
+  box-shadow:0 12px 40px #29352f10;
+}
 
-      model-viewer {
-        height: 350px;
-      }
-    }
-  </style>
+.product model-viewer{
+  display:block;
+  width:100%;
+  height:410px;
+  background:#eee9e1;
+  border-radius:4px;
+}
+
+.product-info{
+  padding:22px 8px 10px;
+  text-align:center;
+}
+
+.product-info h3{
+  font-size:23px;
+  font-weight:500;
+  margin-bottom:8px;
+}
+
+.product-info p{
+  font-size:13px;
+  color:#888075;
+  line-height:1.7;
+}
+
+.ar-button{
+  background:#29352f;
+  color:white;
+  border:0;
+  padding:16px 30px;
+  margin-top:20px;
+  cursor:pointer;
+  letter-spacing:1px;
+}
+
+.ar-button:hover{background:#526456}
+
+.instructions{
+  text-align:center;
+  color:#999187;
+  font-size:12px;
+  padding:25px 10px;
+}
+
+footer{
+  background:#29352f;
+  color:#e9e1d6;
+  text-align:center;
+  padding:30px 15px;
+  font-size:11px;
+  letter-spacing:2px;
+}
+
+@media(max-width:600px){
+  header{padding:20px 6%}
+  .hero{padding:55px 15px 40px}
+  .product model-viewer{height:340px}
+}
+</style>
 </head>
 
 <body>
 
-  <header>
-    <div class="logo">StyleSense <span>AR</span></div>
-    <a href="index.html" class="back">← Home</a>
-  </header>
+<header>
+  <div class="logo">StyleSense <span>AR</span></div>
+  <a href="index.html">← HOME</a>
+</header>
 
-  <main class="container">
+<section class="hero">
+  <p class="eyebrow">DISCOVER FASHION DIFFERENTLY</p>
+  <h1>Luxury <span>Showroom.</span></h1>
+  <p>Explore fashion in three dimensions.<br>
+  Bring your favorite pieces into your world.</p>
+</section>
 
-    <p class="tag">YOUR VIRTUAL FASHION SHOWROOM</p>
+<nav class="categories">
+  <button class="category active" data-category="Men">MEN</button>
+  <button class="category" data-category="Women">WOMEN</button>
+  <button class="category" data-category="Unisex">UNISEX</button>
+</nav>
 
-    <h1>Explore Your Style.</h1>
+<main class="showroom">
 
-    <p class="description">
-      Discover your fashion piece in 3D.
-      Rotate it, explore it and experience it in your space.
-    </p>
+  <div class="section-heading">
+    <h2 id="sectionTitle">Men's Collection</h2>
+    <p>Explore our featured 3D fashion piece</p>
+  </div>
 
-    <div class="viewer-box">
+  <div class="product">
 
-      <model-viewer
-        id="fashionModel"
-        src="./shirt.glb"
-        alt="3D Fashion Shirt"
-        camera-controls
-        auto-rotate
-        shadow-intensity="1"
-        environment-image="neutral"
-        exposure="1"
-        ar
-        ar-modes="quick-look scene-viewer webxr"
-        ar-placement="floor">
+    <model-viewer
+      id="fashionModel"
+      src="./shirt.glb"
+      alt="3D fashion clothing model"
+      camera-controls
+      auto-rotate
+      shadow-intensity="1"
+      environment-image="neutral"
+      exposure="1"
+      ar
+      ar-modes="quick-look scene-viewer webxr"
+      ar-placement="floor">
 
-        <button
-          slot="ar-button"
-          class="ar-button">
-          VIEW IN AR ✦
-        </button>
+      <button slot="ar-button" class="ar-button">
+        VIEW IN AR ✦
+      </button>
 
-      </model-viewer>
+    </model-viewer>
 
+    <div class="product-info">
+      <h3 id="productName">Classic T-Shirt</h3>
+      <p id="productDescription">
+        Explore this 3D fashion piece.
+        Rotate, zoom and experience it in augmented reality.
+      </p>
     </div>
 
-    <p class="hint">
-      Drag to rotate · Scroll to zoom · Tap View in AR to explore
-    </p>
+  </div>
 
-  </main>
+  <p class="instructions">
+    DRAG TO ROTATE · PINCH TO ZOOM · VIEW IN AR
+  </p>
 
-  <footer>
-    STYLESENSE AR · FASHION IN A NEW DIMENSION
-  </footer>
+</main>
+
+<footer>
+  STYLESENSE AR · FASHION IN A NEW DIMENSION
+</footer>
+
+<script>
+const buttons = document.querySelectorAll(".category");
+const title = document.getElementById("sectionTitle");
+const name = document.getElementById("productName");
+const description = document.getElementById("productDescription");
+
+buttons.forEach(button => {
+  button.addEventListener("click", () => {
+
+    buttons.forEach(item => item.classList.remove("active"));
+    button.classList.add("active");
+
+    const category = button.dataset.category;
+
+    title.textContent = category + "'s Collection";
+
+    name.textContent = "Classic T-Shirt";
+
+    description.textContent =
+      "Explore this featured 3D fashion piece. Rotate, zoom and experience it in augmented reality.";
+  });
+});
+</script>
 
 </body>
 </html>
