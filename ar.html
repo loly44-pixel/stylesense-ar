@@ -9,261 +9,164 @@
 <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-
-body{
-  font-family:Arial,sans-serif;
-  background:#f4f0e9;
-  color:#29352f;
-}
-
-header{
-  padding:24px 7%;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-}
-
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,sans-serif;background:#f5f1e9;color:#29352f}
+header{padding:22px 7%;display:flex;justify-content:space-between;align-items:center}
 .logo{font-size:23px;font-weight:bold;letter-spacing:1px}
 .logo span{color:#a58b6d}
-
-header a{
-  text-decoration:none;
-  color:#29352f;
-  font-size:13px;
+header a{color:#29352f;text-decoration:none;font-size:13px}
+.hero{text-align:center;padding:65px 20px 55px;background:#e9e2d6}
+.tag{font-size:11px;letter-spacing:4px;color:#92785e;margin-bottom:18px}
+h1{font-size:clamp(40px,7vw,66px);font-weight:500;margin-bottom:15px}
+h1 span{color:#a58b6d}
+.hero p:last-child{color:#777;line-height:1.8;font-size:14px}
+.categories{display:flex;justify-content:center;gap:10px;padding:30px 12px;flex-wrap:wrap}
+.category{padding:12px 25px;border:1px solid #c7b9a7;background:transparent;color:#29352f;cursor:pointer;letter-spacing:1px}
+.category.active,.category:hover{background:#29352f;color:white}
+.section{max-width:1100px;margin:auto;padding:10px 22px 55px}
+.heading{text-align:center;margin:15px 0 30px}
+.heading h2{font-size:27px;font-weight:500;margin-bottom:9px}
+.heading p{color:#888;font-size:13px}
+.products{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.card{background:#fffdf9;padding:12px;cursor:pointer;transition:.25s}
+.card:hover{transform:translateY(-5px);box-shadow:0 12px 25px #29352f15}
+.card img{width:100%;height:230px;object-fit:cover;background:#eee9e1}
+.card h3{font-size:16px;font-weight:500;margin:14px 5px 6px}
+.card p{font-size:12px;color:#888;margin:0 5px 12px}
+.card button{border:0;background:#29352f;color:white;padding:11px 15px;cursor:pointer;width:100%;font-size:11px;letter-spacing:1px}
+.viewer-section{background:#eae4d9;padding:55px 20px}
+.viewer-inner{max-width:760px;margin:auto;text-align:center}
+.viewer-inner h2{font-size:30px;font-weight:500;margin-bottom:10px}
+.viewer-inner>p{color:#777;font-size:13px;margin-bottom:25px}
+.viewer-box{background:#fffdf9;padding:14px;border-radius:5px}
+model-viewer{width:100%;height:390px;background:#eee9e1}
+.ar-button{background:#29352f;color:white;border:0;padding:15px 27px;cursor:pointer;letter-spacing:1px}
+.viewer-note{font-size:12px;color:#888;margin-top:15px}
+footer{background:#29352f;color:#e9e1d6;text-align:center;padding:28px;font-size:11px;letter-spacing:2px}
+@media(max-width:650px){
+.products{grid-template-columns:repeat(2,1fr);gap:10px}
+.card img{height:165px}
+model-viewer{height:330px}
 }
-
-.hero{
-  padding:65px 20px 45px;
-  text-align:center;
-  background:#eae4d9;
-}
-
-.eyebrow{
-  color:#9b8064;
-  font-size:11px;
-  letter-spacing:4px;
-  margin-bottom:20px;
-}
-
-h1{
-  font-size:clamp(38px,7vw,65px);
-  margin-bottom:15px;
-  font-weight:500;
-}
-
-h1 span{color:#9b8064}
-
-.hero p:last-child{
-  color:#77736b;
-  line-height:1.8;
-}
-
-.categories{
-  display:flex;
-  justify-content:center;
-  gap:12px;
-  padding:35px 15px;
-  flex-wrap:wrap;
-}
-
-.category{
-  border:1px solid #c9bba9;
-  padding:13px 27px;
-  color:#29352f;
-  background:transparent;
-  cursor:pointer;
-  letter-spacing:1px;
-  transition:.3s;
-}
-
-.category.active,.category:hover{
-  background:#29352f;
-  color:white;
-}
-
-.showroom{
-  max-width:1050px;
-  margin:auto;
-  padding:10px 22px 60px;
-}
-
-.section-heading{
-  text-align:center;
-  margin-bottom:30px;
-}
-
-.section-heading h2{
-  font-size:29px;
-  font-weight:500;
-  margin-bottom:10px;
-}
-
-.section-heading p{
-  color:#8a8278;
-  font-size:13px;
-}
-
-.product{
-  max-width:650px;
-  margin:auto;
-  background:#fffdf9;
-  padding:18px;
-  border-radius:5px;
-  box-shadow:0 12px 40px #29352f10;
-}
-
-.product model-viewer{
-  display:block;
-  width:100%;
-  height:410px;
-  background:#eee9e1;
-  border-radius:4px;
-}
-
-.product-info{
-  padding:22px 8px 10px;
-  text-align:center;
-}
-
-.product-info h3{
-  font-size:23px;
-  font-weight:500;
-  margin-bottom:8px;
-}
-
-.product-info p{
-  font-size:13px;
-  color:#888075;
-  line-height:1.7;
-}
-
-.ar-button{
-  background:#29352f;
-  color:white;
-  border:0;
-  padding:16px 30px;
-  margin-top:20px;
-  cursor:pointer;
-  letter-spacing:1px;
-}
-
-.ar-button:hover{background:#526456}
-
-.instructions{
-  text-align:center;
-  color:#999187;
-  font-size:12px;
-  padding:25px 10px;
-}
-
-footer{
-  background:#29352f;
-  color:#e9e1d6;
-  text-align:center;
-  padding:30px 15px;
-  font-size:11px;
-  letter-spacing:2px;
-}
-
-@media(max-width:600px){
-  header{padding:20px 6%}
-  .hero{padding:55px 15px 40px}
-  .product model-viewer{height:340px}
-}
+@media(max-width:390px){.products{grid-template-columns:1fr}}
 </style>
 </head>
 
 <body>
 
 <header>
-  <div class="logo">StyleSense <span>AR</span></div>
-  <a href="index.html">← HOME</a>
+<div class="logo">StyleSense <span>AR</span></div>
+<a href="index.html">← HOME</a>
 </header>
 
 <section class="hero">
-  <p class="eyebrow">DISCOVER FASHION DIFFERENTLY</p>
-  <h1>Luxury <span>Showroom.</span></h1>
-  <p>Explore fashion in three dimensions.<br>
-  Bring your favorite pieces into your world.</p>
+<div class="tag">A NEW WAY TO EXPERIENCE FASHION</div>
+<h1>Discover Your <span>Style.</span></h1>
+<p>Explore fashion pieces and bring your favorite<br>3D design into your real world.</p>
 </section>
 
 <nav class="categories">
-  <button class="category active" data-category="Men">MEN</button>
-  <button class="category" data-category="Women">WOMEN</button>
-  <button class="category" data-category="Unisex">UNISEX</button>
+<button class="category active" data-filter="all">ALL</button>
+<button class="category" data-filter="men">MEN</button>
+<button class="category" data-filter="women">WOMEN</button>
+<button class="category" data-filter="unisex">UNISEX</button>
 </nav>
 
-<main class="showroom">
+<main class="section">
+<div class="heading">
+<h2>Explore The Collection</h2>
+<p>Discover pieces selected for your style</p>
+</div>
 
-  <div class="section-heading">
-    <h2 id="sectionTitle">Men's Collection</h2>
-    <p>Explore our featured 3D fashion piece</p>
-  </div>
+<div class="products">
 
-  <div class="product">
+<div class="card" data-category="unisex" onclick="openAR()">
+<img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600" alt="Classic T-shirt">
+<h3>Classic T-Shirt</h3>
+<p>Unisex · 3D & AR Experience</p>
+<button>EXPLORE IN AR ↗</button>
+</div>
 
-    <model-viewer
-      id="fashionModel"
-      src="./shirt.glb"
-      alt="3D fashion clothing model"
-      camera-controls
-      auto-rotate
-      shadow-intensity="1"
-      environment-image="neutral"
-      exposure="1"
-      ar
-      ar-modes="quick-look scene-viewer webxr"
-      ar-placement="floor">
+<div class="card" data-category="men">
+<img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=600" alt="Fashion jacket">
+<h3>Modern Jacket</h3>
+<p>Men · Collection Preview</p>
+<button onclick="previewMessage(event)">EXPLORE COLLECTION</button>
+</div>
 
-      <button slot="ar-button" class="ar-button">
-        VIEW IN AR ✦
-      </button>
+<div class="card" data-category="women">
+<img src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=600" alt="Elegant fashion dress">
+<h3>Elegant Outfit</h3>
+<p>Women · Collection Preview</p>
+<button onclick="previewMessage(event)">EXPLORE COLLECTION</button>
+</div>
 
-    </model-viewer>
-
-    <div class="product-info">
-      <h3 id="productName">Classic T-Shirt</h3>
-      <p id="productDescription">
-        Explore this 3D fashion piece.
-        Rotate, zoom and experience it in augmented reality.
-      </p>
-    </div>
-
-  </div>
-
-  <p class="instructions">
-    DRAG TO ROTATE · PINCH TO ZOOM · VIEW IN AR
-  </p>
-
+</div>
 </main>
 
+<section class="viewer-section" id="arExperience">
+<div class="viewer-inner">
+<div class="tag">YOUR AUGMENTED REALITY EXPERIENCE</div>
+<h2>See It In Your World.</h2>
+<p>Explore the 3D model, rotate it and experience it in augmented reality.</p>
+
+<div class="viewer-box">
+<model-viewer
+id="fashionModel"
+src="./shirt.glb"
+alt="3D Classic T-Shirt"
+camera-controls
+auto-rotate
+shadow-intensity="1"
+environment-image="neutral"
+exposure="1"
+ar
+ar-modes="quick-look scene-viewer webxr"
+ar-placement="floor">
+
+<button slot="ar-button" class="ar-button">
+VIEW IN AR ✦
+</button>
+
+</model-viewer>
+</div>
+
+<p class="viewer-note">Drag to rotate · Pinch to zoom · View in AR</p>
+</div>
+</section>
+
 <footer>
-  STYLESENSE AR · FASHION IN A NEW DIMENSION
+STYLESENSE AR · FASHION IN A NEW DIMENSION
 </footer>
 
 <script>
-const buttons = document.querySelectorAll(".category");
-const title = document.getElementById("sectionTitle");
-const name = document.getElementById("productName");
-const description = document.getElementById("productDescription");
+const buttons=document.querySelectorAll(".category");
+const cards=document.querySelectorAll(".card");
 
-buttons.forEach(button => {
-  button.addEventListener("click", () => {
+buttons.forEach(button=>{
+button.addEventListener("click",()=>{
+buttons.forEach(b=>b.classList.remove("active"));
+button.classList.add("active");
+const filter=button.dataset.filter;
 
-    buttons.forEach(item => item.classList.remove("active"));
-    button.classList.add("active");
-
-    const category = button.dataset.category;
-
-    title.textContent = category + "'s Collection";
-
-    name.textContent = "Classic T-Shirt";
-
-    description.textContent =
-      "Explore this featured 3D fashion piece. Rotate, zoom and experience it in augmented reality.";
-  });
+cards.forEach(card=>{
+card.style.display=
+filter==="all"||card.dataset.category===filter
+?"block":"none";
 });
+});
+});
+
+function openAR(){
+document.getElementById("arExperience").scrollIntoView({
+behavior:"smooth"
+});
+}
+
+function previewMessage(event){
+event.stopPropagation();
+alert("This collection is a visual preview. The AR experience is currently available for the Classic T-Shirt.");
+}
 </script>
 
 </body>
