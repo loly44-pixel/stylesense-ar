@@ -1,0 +1,169 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>StyleSense AR</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f0e9;
+            color: #29352f;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 25px 8%;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: #9b8064;
+        }
+
+        .hero {
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 8%;
+        }
+
+        .content {
+            max-width: 650px;
+            text-align: center;
+        }
+
+        .tag {
+            font-size: 12px;
+            letter-spacing: 3px;
+            color: #8a7560;
+            margin-bottom: 25px;
+        }
+
+        h1 {
+            font-size: clamp(42px, 8vw, 80px);
+            line-height: 1.1;
+            margin-bottom: 25px;
+        }
+
+        h1 span {
+            color: #9b8064;
+        }
+
+        .description {
+            color: #77736b;
+            font-size: 16px;
+            line-height: 1.8;
+            max-width: 450px;
+            margin: 0 auto 35px;
+        }
+
+        .start-btn {
+            background: #29352f;
+            color: white;
+            border: none;
+            padding: 17px 35px;
+            font-size: 13px;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .start-btn:hover {
+            background: #45574b;
+            transform: translateY(-3px);
+        }
+
+        .note {
+            margin-top: 20px;
+            font-size: 12px;
+            color: #999187;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #999187;
+            font-size: 11px;
+            letter-spacing: 1px;
+        }
+
+        @media (max-width: 600px) {
+            header {
+                padding: 22px 6%;
+            }
+
+            .hero {
+                padding: 30px 6%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">
+            StyleSense <span>AR</span>
+        </div>
+
+        <div>✦</div>
+    </header>
+
+    <main class="hero">
+        <div class="content">
+
+            <p class="tag">
+                YOUR PERSONAL FASHION EXPERIENCE
+            </p>
+
+            <h1>
+                Discover Your <span>Style.</span>
+            </h1>
+
+            <p class="description">
+                Explore fashion in a whole new dimension.
+                Discover your favorite outfits and experience
+                augmented reality like never before.
+            </p>
+
+            <button class="start-btn" onclick="startExperience()">
+                START EXPERIENCE →
+            </button>
+
+            <p class="note">
+                Interactive Fashion · 3D · Augmented Reality
+            </p>
+
+        </div>
+    </main>
+
+    <footer>
+        STYLESENSE AR · FASHION IN A NEW DIMENSION
+    </footer>
+
+    <script>
+        function startExperience() {
+            alert("Welcome to StyleSense AR!");
+        }
+    </script>
+
+</body>
+</html>
