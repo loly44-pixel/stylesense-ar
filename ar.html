@@ -1,0 +1,185 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>StyleSense AR | Virtual Showroom</title>
+
+  <script type="module"
+    src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js">
+  </script>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f0e9;
+      color: #29352f;
+    }
+
+    header {
+      padding: 25px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: bold;
+    }
+
+    .logo span {
+      color: #a58b6d;
+    }
+
+    .back {
+      color: #29352f;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 35px auto;
+      padding: 25px;
+      text-align: center;
+    }
+
+    .tag {
+      color: #9b8064;
+      letter-spacing: 3px;
+      font-size: 12px;
+      margin-bottom: 15px;
+    }
+
+    h1 {
+      font-size: 42px;
+      margin-bottom: 12px;
+    }
+
+    .description {
+      color: #77736b;
+      line-height: 1.7;
+      margin-bottom: 25px;
+    }
+
+    .viewer-box {
+      background: #fffdf9;
+      border-radius: 20px;
+      padding: 15px;
+      max-width: 700px;
+      margin: auto;
+      box-shadow: 0 10px 35px #29352f12;
+    }
+
+    model-viewer {
+      width: 100%;
+      height: 430px;
+      background: #ede8df;
+      border-radius: 14px;
+    }
+
+    .ar-button {
+      background: #29352f;
+      color: white;
+      border: none;
+      padding: 16px 30px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 13px;
+      letter-spacing: 1px;
+      margin-top: 20px;
+    }
+
+    .ar-button:hover {
+      background: #526456;
+    }
+
+    .hint {
+      color: #8a8278;
+      font-size: 12px;
+      margin-top: 15px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      color: #999187;
+      font-size: 11px;
+    }
+
+    @media(max-width: 600px) {
+      h1 {
+        font-size: 32px;
+      }
+
+      model-viewer {
+        height: 350px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="logo">StyleSense <span>AR</span></div>
+    <a href="index.html" class="back">← Home</a>
+  </header>
+
+  <main class="container">
+
+    <p class="tag">YOUR VIRTUAL FASHION SHOWROOM</p>
+
+    <h1>Explore Your Style.</h1>
+
+    <p class="description">
+      Discover your fashion piece in 3D.
+      Rotate it, explore it and experience it in your space.
+    </p>
+
+    <div class="viewer-box">
+
+      <model-viewer
+        id="fashionModel"
+        src="./shirt.glb"
+        alt="3D Fashion Shirt"
+        camera-controls
+        auto-rotate
+        shadow-intensity="1"
+        environment-image="neutral"
+        exposure="1"
+        ar
+        ar-modes="webxr scene-viewer"
+        ar-placement="floor">
+
+        <button
+          slot="ar-button"
+          class="ar-button">
+          VIEW IN AR ✦
+        </button>
+
+      </model-viewer>
+
+    </div>
+
+    <p class="hint">
+      Drag to rotate · Scroll to zoom · Tap View in AR to explore
+    </p>
+
+  </main>
+
+  <footer>
+    STYLESENSE AR · FASHION IN A NEW DIMENSION
+  </footer>
+
+</body>
+</html>
